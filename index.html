@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bank Retention — Login</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card card">
+      <div class="left">
+        <h2>Welcome to Banking Retention System</h2>
+        <p>Customer Retention through Analytics</p>
+      </div>
+
+      <div class="right">
+        <h3>Sign in</h3>
+        <form onsubmit="handleLogin(event)">
+          <div class="input">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@bank.com" required />
+          </div>
+          <div class="input">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password" required minlength="8" />
+          </div>
+          <button class="btn" type="submit">Sign in</button>
+        </form>
+
+        <div class="links">
+          <a href="#" onclick="showSignup()">Create Account</a> | 
+          <a href="#" onclick="showForgot()">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal hidden">
+    <div class="modal-content card">
+      <h3>Create Account</h3>
+      <form onsubmit="handleSignup(event)">
+        <div class="input">
+          <label>Email</label>
+          <input id="signupEmail" type="email" required />
+        </div>
+        <div class="input">
+          <label>Password</label>
+          <input id="signupPassword" type="password" required minlength="8" />
+        </div>
+        <button class="btn" type="submit">Sign Up</button>
+        <button type="button" class="btn secondary" onclick="closeModal('signupModal')">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotModal" class="modal hidden">
+    <div class="modal-content card">
+      <h3>Forgot Password</h3>
+      <form onsubmit="handleForgot(event)">
+        <div class="input">
+          <label>Email</label>
+          <input id="forgotEmail" type="email" required />
+        </div>
+        <button class="btn" type="submit">Recover</button>
+        <button type="button" class="btn secondary" onclick="closeModal('forgotModal')">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

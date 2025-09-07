@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bank Retention — Upload Data</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body onload="requireAuth()">
+  <header>
+    <h1>Bank Retention System</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="powerbi.html">Power BI Dashboard</a>
+      <a href="upload.html" class="active">Upload & Predict</a>
+      <a href="highrisk.html">High Risk Customers</a>
+      <button data-logout>Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Upload Customer Data & Predict Retention</h2>
+    <input type="file" id="fileInput" />
+    <button class="btn" onclick="alert('Prediction model not connected. Demo only.')">Predict</button>
+  </main>
+
+  <footer><p>&copy; 2025 SecureBank</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>

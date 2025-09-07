@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bank Retention — High Risk Customers</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body onload="requireAuth()">
+  <header>
+    <h1>Bank Retention System</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="powerbi.html">Power BI Dashboard</a>
+      <a href="upload.html">Upload & Predict</a>
+      <a href="highrisk.html" class="active">High Risk Customers</a>
+      <button data-logout>Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Very High Risk Customers</h2>
+    <table border="1" width="100%">
+      <tr><th>ID</th><th>Name</th><th>Risk Score</th></tr>
+      <tr><td>101</td><td>John Doe</td><td>92%</td></tr>
+      <tr><td>102</td><td>Mary Smith</td><td>88%</td></tr>
+      <tr><td>103</td><td>Ali Khan</td><td>85%</td></tr>
+    </table>
+    <button class="btn" onclick="downloadData()">Download Data</button>
+  </main>
+
+  <footer><p>&copy; 2025 SecureBank</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>

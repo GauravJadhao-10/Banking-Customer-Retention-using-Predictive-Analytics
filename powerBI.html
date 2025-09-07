@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bank Retention — Power BI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body onload="requireAuth()">
+  <header>
+    <h1>Bank Retention System</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="powerbi.html" class="active">Power BI Dashboard</a>
+      <a href="upload.html">Upload & Predict</a>
+      <a href="highrisk.html">High Risk Customers</a>
+      <button data-logout>Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Power BI Dashboard</h2>
+    <iframe title="Bank Retention Analytics" width="100%" height="600" src="https://app.powerbi.com/" frameborder="0" allowFullScreen="true"></iframe>
+  </main>
+
+  <footer><p>&copy; 2025 SecureBank</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Power BI Dashboard — Bank Retention</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .embed-wrap{min-height:60vh;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px dashed #e9eef9;background:linear-gradient(180deg,#fcfdff,#fff)}
+    .embed-controls{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    .small-inp{padding:8px 10px;border-radius:8px;border:1px solid #eef2f7}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">BR</div>
+        <div>
+          <h1>Power BI Dashboard</h1>
+          <p>Embed your Power BI report</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="home.html">Home</a>
+        <a href="dashboard.html">Power BI</a>
+        <a href="upload.html">Upload & Predict</a>
+        <a href="highrisk.html">Very High Risk</a>
+        <a href="#" data-logout>Logout</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <div class="embed-controls">
+        <input id="pbLink" class="small-inp" placeholder="Paste Power BI embed URL here (or leave blank for demo placeholder)" style="width:70%"/>
+        <button class="btn" id="loadEmbed">Load</button>
+        <button class="btn secondary" id="clearEmbed">Clear</button>
+      </div>
+
+      <div id="embedArea" class="embed-wrap card">
+        <div style="text-align:center;color:var(--muted)">
+          <div style="font-weight:700;font-size:18px">Power BI report placeholder</div>
+          <div style="margin-top:8px">Paste your Power BI embed URL above and click <strong>Load</strong> to display it here (iframe).</div>
+          <div style="margin-top:8px;font-size:12px;color:var(--muted)">If you have an embed token or special embedding method, use your secure backend to generate embed tokens and insert the iframe source.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer card">
+      <div>Instructions: Use a proper Power BI embed link (or a published report link). For secure embedding, generate an embed token on server side and use the Power BI JS SDK.</div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // requireAuth(); // optionally enforce login
+    const embedArea = document.getElementById("embedArea");
+    document.getElementById("loadEmbed").addEventListener("click", ()=>{
+      const url = document.getElementById("pbLink").value.trim();
+      if(!url){ alert("Paste an embed URL or published report URL."); return; }
+      // Basic validation
+      if(!/^https?:\/\//i.test(url)){ alert("Please paste a valid URL."); return; }
+      embedArea.innerHTML = '<iframe src="'+url+'" style="width:100%;height:620px;border:0;border-radius:8px"></iframe>';
+    });
+    document.getElementById("clearEmbed").addEventListener("click", ()=>{
+      document.getElementById("pbLink").value = "";
+      embedArea.innerHTML = `<div style="text-align:center;color:var(--muted)"><div style="font-weight:700;font-size:18px">Power BI report placeholder</div><div style="margin-top:8px">Paste your Power BI embed URL above and click <strong>Load</strong> to display it here (iframe).</div></div>`;
+    });
+  </script>
+</body>
+</html>
